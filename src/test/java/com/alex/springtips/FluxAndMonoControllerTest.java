@@ -12,7 +12,7 @@ import reactor.test.StepVerifier;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @WebFluxTest
 class FluxAndMonoControllerTest {
@@ -59,7 +59,6 @@ class FluxAndMonoControllerTest {
         assertEquals(expected, listEntityExchangeResult.getResponseBody());
     }
 
-
     @Test
     void flux_approach4() {
         List<Integer> expected = Arrays.asList(1, 2, 3, 4);
@@ -71,7 +70,6 @@ class FluxAndMonoControllerTest {
                 .expectBodyList(Integer.class)
                 .consumeWith(response -> assertEquals(expected, response.getResponseBody()));
     }
-
 
     @Test
     void flux_approach_Stream() {
